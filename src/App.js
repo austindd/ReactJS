@@ -14,7 +14,7 @@ class App extends Component {
     }
   }
 
-  onInputChange = (value) => {
+  handleInputChange = (value) => {
     this.setState({ name: value });
   }
 
@@ -26,10 +26,8 @@ class App extends Component {
 
         <input
           placeholder="What's your name?"
-          value={ this.state.name }
-          onChange={ (event) => {
-            this.onInputChange(event.target.value);
-          } }
+          value={this.state.name}
+          onChange={(event) => { this.handleInputChange(event.target.value) }}
         />
 
         <Comment
