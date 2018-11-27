@@ -10,18 +10,31 @@ class App extends Component {
     super(props);
 
     this.state = {
-
+      name: 'Austin'
     }
   }
 
+  onInputChange = (value) => {
+    this.setState({ name: value });
+  }
+
   render() {
-    let element = <h1>Welcome to React</h1>
+    let welcome = <h1>Welcome to React</h1>
     return (
       <div>
-        {element}
+        {welcome}
+
+        <input
+          placeholder="What's your name?"
+          value={ this.state.name }
+          onChange={ (event) => {
+            this.onInputChange(event.target.value);
+          } }
+        />
+
         <Comment
-          author={{ name: 'Austin', avatarUrl: 'https://avatars1.githubusercontent.com/u/44079572?s=460&v=4' }}
-          text={"This is a cool library"}
+          author={{ name: this.state.name, avatarUrl: 'https://avatars1.githubusercontent.com/u/44079572?s=460&v=4' }}
+          text={"This is a cool JS library"}
         />
       </div>
     );
